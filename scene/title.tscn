@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d1s8p6c3bmtbo"]
+
+[node name="Title" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1152.0
+offset_bottom = 645.0
+text = "Yume-Ochi"
+horizontal_alignment = 1
+vertical_alignment = 1
