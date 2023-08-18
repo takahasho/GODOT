@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bofmgtngwue0f"]
+
+[ext_resource type="Texture2D" uid="uid://chb01n36sq5wx" path="res://仮背景.png" id="1_ryrdf"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="仮背景" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_ryrdf")
