@@ -1,9 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://bofmgtngwue0f"]
+[gd_scene load_steps=8 format=3 uid="uid://bofmgtngwue0f"]
 
-[ext_resource type="Texture2D" uid="uid://chb01n36sq5wx" path="res://Images/仮背景.png" id="1_lwu6f"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dyem5"]
+[ext_resource type="PackedScene" uid="uid://c4d7om66og7ht" path="res://Scenes/Player.tscn" id="1_rdyra"]
+[ext_resource type="PackedScene" uid="uid://dwvf8ui6jkjt5" path="res://Scenes/Hud.tscn" id="3_p6ijk"]
+[ext_resource type="Texture2D" uid="uid://3bgqkn5d45f1" path="res://Images/背景.png" id="4_k8uv0"]
+[ext_resource type="PackedScene" uid="uid://7r3ww0wowsg0" path="res://Scenes/Cloud.tscn" id="5_t4wp2"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="Curve2D" id="Curve2D_aeyuc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, -8, 0, 0, 0, 0, 480, 720, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0)
+}
+point_count = 5
 
-[node name="仮背景" type="Sprite2D" parent="."]
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("1_lwu6f")
+[sub_resource type="SpriteFrames" id="SpriteFrames_byrfx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_k8uv0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_dyem5")
+
+[node name="Player" parent="." instance=ExtResource("1_rdyra")]
+
+[node name="CloudPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_aeyuc")
+
+[node name="CloudPathFollow2D" type="PathFollow2D" parent="CloudPath"]
+rotation = -0.0166651
+
+[node name="HUD" parent="." instance=ExtResource("3_p6ijk")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+position = Vector2(240, 3272)
+scale = Vector2(3.7, 3.7)
+sprite_frames = SubResource("SpriteFrames_byrfx")
+
+[node name="Cloud" parent="." instance=ExtResource("5_t4wp2")]

@@ -1,17 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4d7om66og7ht"]
+[gd_scene load_steps=5 format=3 uid="uid://c4d7om66og7ht"]
 
-[ext_resource type="Script" path="res://Scenes/Player.gd" id="1_aksqg"]
-[ext_resource type="Texture2D" uid="uid://dka20aepwaacx" path="res://Images/Fall1.png" id="1_qksr1"]
-[ext_resource type="Texture2D" uid="uid://b4fbglvoxfbf0" path="res://Images/Fall2.png" id="2_spe54"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_aksqg"]
+[ext_resource type="Texture2D" uid="uid://dim6hi0fy2apv" path="res://Images/Player.png" id="2_6nc8y"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dfsr8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_qksr1")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_spe54")
+"texture": ExtResource("2_6nc8y")
 }],
 "loop": true,
 "name": &"Fall1",
@@ -19,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hi828"]
-size = Vector2(259, 134)
+size = Vector2(162, 52)
 
 [node name="Player" type="Area2D"]
 position = Vector2(233, 150)
@@ -27,10 +23,12 @@ script = ExtResource("1_aksqg")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_dfsr8")
 animation = &"Fall1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(5, -3)
 shape = SubResource("RectangleShape2D_hi828")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
