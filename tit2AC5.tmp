@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdcayf3qt7r06"]
+
+[ext_resource type="Script" path="res://title.gd" id="1_06um3"]
+[ext_resource type="Texture2D" uid="uid://wyd008jctbso" path="res://Images/1.png" id="1_i6pld"]
+[ext_resource type="Texture2D" uid="uid://d36w68cr6imj6" path="res://Images/2.png" id="3_1sjh0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s7s5x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_i6pld")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_06um3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(240, 360)
+scale = Vector2(0.32, 0.32)
+sprite_frames = SubResource("SpriteFrames_s7s5x")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 160.0
+offset_top = 408.0
+offset_right = 222.0
+offset_bottom = 439.0
+scale = Vector2(3.04, 2.8)
+text = "はじめる"
+icon = ExtResource("3_1sjh0")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

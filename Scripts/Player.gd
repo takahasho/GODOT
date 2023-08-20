@@ -6,6 +6,7 @@ var speed = 300
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	$pc_root/AnimationPlayer.play("falling")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -16,8 +17,7 @@ func _process(delta):
 			velocity.x += 0.25
 		if Input.is_action_pressed("move_left"):
 			velocity.x -= 0.25
-		
-		get_node("AnimatedSprite2D").play()
+
 		position += velocity * speed * delta
 		position.x = clamp(position.x, 70, screen_size.x - 80)
 		position.y = clamp(position.y, 0, screen_size.y)

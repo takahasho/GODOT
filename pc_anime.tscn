@@ -1,10 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4d7om66og7ht"]
+[gd_scene load_steps=4 format=3 uid="uid://cbwrasuap160y"]
 
-[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_aksqg"]
-[ext_resource type="Texture2D" uid="uid://do6vmmewwiy06" path="res://assets/graphics/pc.png" id="2_rrmsk"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hi828"]
-size = Vector2(162, 52)
+[ext_resource type="Texture2D" uid="uid://do6vmmewwiy06" path="res://assets/graphics/pc.png" id="1_27ejb"]
 
 [sub_resource type="Animation" id="Animation_nh1la"]
 resource_name = "falling"
@@ -39,22 +35,12 @@ _data = {
 "falling": SubResource("Animation_nh1la")
 }
 
-[node name="Player" type="Area2D"]
-position = Vector2(233, 150)
-collision_mask = 2
-script = ExtResource("1_aksqg")
-metadata/_edit_group_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, -3)
-shape = SubResource("RectangleShape2D_hi828")
+[node name="Node2D" type="Node2D"]
 
 [node name="pc_root" type="Node2D" parent="."]
-position = Vector2(-94, -85)
-scale = Vector2(0.05, 0.05)
 
 [node name="pc_fullbody" type="Polygon2D" parent="pc_root"]
-texture = ExtResource("2_rrmsk")
+texture = ExtResource("1_27ejb")
 skeleton = NodePath("../Skeleton2D")
 polygon = PackedVector2Array(204.167, 1291.67, 483.333, 1075, 779.167, 1395.83, 770.833, 737.5, 1770.83, 345.833, 2625, 350, 2716.67, 495.833, 2191.67, 679.167, 2000, 1462.5, 2295.83, 1429.17, 2687.5, 795.833, 2975, 845.833, 3058.33, 662.5, 3254.17, 641.667, 3533.33, 1204.17, 3995.83, 1775, 3666.67, 1941.67, 3529.17, 1854.17, 2912.5, 2016.67, 2387.5, 1995.83, 2341.67, 2158.33, 1958.33, 2112.5, 1695.83, 2166.67, 1183.33, 2729.17, 725, 2779.17, 579.167, 2708.33, 412.5, 2270.83, 629.167, 2116.67, 958.333, 2050, 1241.67, 1937.5, 1125, 1887.5, 416.667, 1820.83, 133.333, 1375)
 uv = PackedVector2Array(204.167, 1291.67, 483.333, 1075, 779.167, 1395.83, 770.833, 737.5, 1770.83, 345.833, 2625, 350, 2716.67, 495.833, 2191.67, 679.167, 2000, 1462.5, 2295.83, 1429.17, 2687.5, 795.833, 2975, 845.833, 3058.33, 662.5, 3254.17, 641.667, 3533.33, 1204.17, 3995.83, 1775, 3666.67, 1941.67, 3529.17, 1854.17, 2912.5, 2016.67, 2387.5, 1995.83, 2341.67, 2158.33, 1958.33, 2112.5, 1695.83, 2166.67, 1183.33, 2729.17, 725, 2779.17, 579.167, 2708.33, 412.5, 2270.83, 629.167, 2116.67, 958.333, 2050, 1241.67, 1937.5, 1125, 1887.5, 416.667, 1820.83, 133.333, 1375)
@@ -64,13 +50,12 @@ bones = ["hip", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0, 0, 0, 0, 0
 
 [node name="hip" type="Bone2D" parent="pc_root/Skeleton2D"]
 position = Vector2(2286, 1639)
-rotation = 0.00479821
-scale = Vector2(1, 1)
+rotation = -0.00106204
 rest = Transform2D(1, 0, 0, 1, 2286, 1639)
 
 [node name="spine" type="Bone2D" parent="pc_root/Skeleton2D/hip"]
 position = Vector2(-375, 119)
-rotation = -0.14865
+rotation = 0.138569
 scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -375, 119)
 
@@ -140,5 +125,3 @@ rest = Transform2D(1, 0, 0, 1, 205, 190)
 libraries = {
 "": SubResource("AnimationLibrary_0123n")
 }
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
