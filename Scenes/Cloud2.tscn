@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkoebyfpqkqty"]
+
+[ext_resource type="Script" path="res://Scripts/Cloud.gd" id="2_vqcff"]
+[ext_resource type="Texture2D" uid="uid://balabtx1yscct" path="res://Images/Cloud2.png" id="4_318gj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lu2t7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_318gj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmri0"]
+radius = 30.25
+height = 116.0
+
+[node name="Cloud" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("2_vqcff")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_lu2t7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-24, -2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_tmri0")

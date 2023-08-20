@@ -1,7 +1,7 @@
 extends Area2D
 
 var screen_size # Size of the game window.
-var speed = 250
+var speed = 300
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -9,7 +9,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Grobal.game_start:
+	if Global.game_start:
 		var velocity = Vector2.ZERO
 		
 		if Input.is_action_pressed("move_right"):

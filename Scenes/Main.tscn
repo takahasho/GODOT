@@ -1,14 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bofmgtngwue0f"]
+[gd_scene load_steps=7 format=3 uid="uid://bofmgtngwue0f"]
 
 [ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dyem5"]
 [ext_resource type="PackedScene" uid="uid://c4d7om66og7ht" path="res://Scenes/Player.tscn" id="1_rdyra"]
 [ext_resource type="PackedScene" uid="uid://dwvf8ui6jkjt5" path="res://Scenes/Hud.tscn" id="3_p6ijk"]
 [ext_resource type="Texture2D" uid="uid://3bgqkn5d45f1" path="res://Images/背景.png" id="4_k8uv0"]
-[ext_resource type="PackedScene" uid="uid://7r3ww0wowsg0" path="res://Scenes/Cloud.tscn" id="5_t4wp2"]
 
 [sub_resource type="Curve2D" id="Curve2D_aeyuc"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 480, -8, 0, 0, 0, 0, 480, 720, 0, 0, 0, 0, 0, 720, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 64, 797.325, 0, 0, 0, 0, 376, 797.325, 0, 0, 0, 0, 376, 980.709, 0, 0, 0, 0, 64, 980.709, 0, 0, 0, 0, 64, 797.325)
 }
 point_count = 5
 
@@ -29,10 +28,12 @@ script = ExtResource("1_dyem5")
 [node name="Player" parent="." instance=ExtResource("1_rdyra")]
 
 [node name="CloudPath" type="Path2D" parent="."]
+scale = Vector2(1, 1.00336)
 curve = SubResource("Curve2D_aeyuc")
 
-[node name="CloudPathFollow2D" type="PathFollow2D" parent="CloudPath"]
-rotation = -0.0166651
+[node name="PathFollow2D" type="PathFollow2D" parent="CloudPath"]
+position = Vector2(64, 797.325)
+rotates = false
 
 [node name="HUD" parent="." instance=ExtResource("3_p6ijk")]
 
@@ -41,5 +42,3 @@ z_index = -1
 position = Vector2(240, 3272)
 scale = Vector2(3.7, 3.7)
 sprite_frames = SubResource("SpriteFrames_byrfx")
-
-[node name="Cloud" parent="." instance=ExtResource("5_t4wp2")]
