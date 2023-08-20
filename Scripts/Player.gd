@@ -13,14 +13,18 @@ func _process(delta):
 		var velocity = Vector2.ZERO
 		
 		if Input.is_action_pressed("move_right"):
-			velocity.x += 1
+			velocity.x += 0.25
 		if Input.is_action_pressed("move_left"):
-			velocity.x -= 1
+			velocity.x -= 0.25
 		
 		get_node("AnimatedSprite2D").play()
 		position += velocity * speed * delta
 		position.x = clamp(position.x, 70, screen_size.x - 80)
 		position.y = clamp(position.y, 0, screen_size.y)
+		
+		if (Global.landing) :
+			position.y +=  Global.fall_speed
 
 func _on_body_entered(_body):
-	$CollisionShape2D.set_deferred("disabled", true)
+	Global.fall_speed -= 0.2
+	Global.cloud_speed -= 20

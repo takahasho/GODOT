@@ -2,7 +2,7 @@ extends RigidBody2D
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	position.y -= Global.fall_speed
+	if position.y < -150:
+		queue_free()
+func _process(delta):
+	linear_velocity.y = -Global.cloud_speed

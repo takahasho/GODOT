@@ -8,17 +8,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Global.game_start:
+	if Global.game_start and !Global.landing:
 		$AnimatedSprite2D.position.y -= Global.fall_speed
 	if Global.cloud_generate:
 		cloud_generate()
-
-func game_over():
-	pass
+	if $AnimatedSprite2D.position.y < -2520 :
+		Global.landing = true
 
 func new_game():
 	randomize()
 	Global.game_start = false
+	Global.landing = false
 
 func cloud_generate():
 	match randi_range(0,2):

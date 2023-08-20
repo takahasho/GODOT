@@ -38,7 +38,7 @@ text = "Start"
 wait_time = 1.55
 
 [node name="CloudTimer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 2.5
 
 [connection signal="button_down" from="StartButton" to="." method="_on_start_button_button_down"]
 [connection signal="timeout" from="CloudTimer" to="." method="_on_cloud_timer_timeout"]

@@ -19,8 +19,9 @@ radius = 30.25
 height = 116.0
 
 [node name="Cloud" type="RigidBody2D"]
-collision_mask = 0
+collision_layer = 2
 gravity_scale = 0.0
+linear_damp_mode = 1
 script = ExtResource("2_vqcff")
 metadata/_edit_group_ = true
 

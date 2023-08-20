@@ -24,6 +24,11 @@ Global="*res://Scripts/Global.gd"
 window/size/viewport_width=480
 window/size/viewport_height=720
 window/stretch/mode="viewport"
+window/movie_file=""
+
+[editor]
+
+movie_writer/movie_file="C:/Users/kouki/Documents/movie.avi"
 
 [input]
 
